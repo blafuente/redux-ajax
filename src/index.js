@@ -21,4 +21,12 @@ import { Provider } from 'react-redux'; // 1
 import { createStore } from 'redux'; // 2
 import reducers from './reducers/index'; // 3, 4, & 5
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const theStore = createStore(reducers); // 6
+
+
+ReactDOM.render( 
+    <Provider store={theStore}>
+        <App />
+    </Provider>, 
+    document.getElementById('root')
+);

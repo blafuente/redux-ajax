@@ -6,6 +6,12 @@
 // 4. Each value will be a single reducer (imported)
 
 import { combineReducers } from 'redux'; //1 
-import weatherReducer from './weatherReducer';
-import stockReducer from './stockReducer';
+import weatherReducer from './weatherReducer'; //(4)
+import stockReducer from './stockReducer'; //(4)
 
+const rootReducer = combineReducers({ //2
+    weather: weatherReducer, //3 & 4
+    stocks: stockReducer, //3 & 4
+})
+
+export default rootReducer;
