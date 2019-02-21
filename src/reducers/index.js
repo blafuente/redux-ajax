@@ -14,4 +14,4 @@ const rootReducer = combineReducers({ //2
     stocks: stockReducer, //3 & 4
 })
 
-export default rootReducer;
+export default rootReducer
