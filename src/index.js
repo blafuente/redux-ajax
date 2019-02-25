@@ -18,14 +18,19 @@ import './index.css';
 import App from './App';
 
 import { Provider } from 'react-redux'; // 1
-import { createStore } from 'redux'; // 2
+import { createStore, applyMiddleware } from 'redux'; // 2
 import reducers from './reducers/index'; // 3, 4, & 5
+import reduxPromise from 'redux-promise'; // 8 & 9
 
-const theStore = createStore(reducers); // 6
+// const theStore = createStore(reducers); // 6  
+const theStoreWithMiddleWare = applyMiddleware((reduxPromise)(createStore)(reducers));
+// const middleware = applyMiddleware(reduxPromise);
+// const theStore = middleware(createStore);
+// const theStoreWithMiddleWare = theStore(reducers);
 
 
 ReactDOM.render( 
-    <Provider store={theStore}>
+    <Provider store={theStoreWithMiddleWare}>
         <App />
     </Provider>, 
     document.getElementById('root')
